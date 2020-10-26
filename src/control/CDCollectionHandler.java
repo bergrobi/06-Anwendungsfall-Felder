@@ -16,19 +16,31 @@ public class CDCollectionHandler {
      */
     public CDCollectionHandler(int[] amounts){
         //TODO: 01 - Konstruktor fertigstellen.
+        /*
+        CompactDisc[][] allCDs = new CompactDisc[4][];
+        allCDs[] = new CompactDisc[amounts[]]
+         */
+        allCDs = new CompactDisc[amounts.length][];
+        for(int i = 0; i < allCDs.length; i++){
+            allCDs[i] = new CompactDisc[amounts[i]];
+        }
 
     }
 
     /**
      *
-     * @param box - Gewählter CD-Ständer
-     * @param place - Gewählter Platz
+     * @param box - Array_Index vom Gewählten CD-Ständer
+     * @param place - Array_Index vom Gewählte Platz
      * @param artist - Künstername/Bandname
      * @param title - Albumtitel
      * @return - true, falls ein Platz frei war und die CD hinzugefügt werden konnte, sonst false.
      */
     public boolean addNewCD(int box, int place, String artist, String title){
         //TODO: 02 - Hinzufügen einer CD
+        if (allCDs[box][place] == null){
+            allCDs[box][place] = new CompactDisc(artist, title);
+            return true;
+        }
         return false;
     }
 
@@ -38,9 +50,16 @@ public class CDCollectionHandler {
      * @param place - Gewählter Platz
      * @return - Entweder ein String-Array mit "Künstler" - "Titel" oder mit "Empty" - "Empty".
      */
-    public String[] getInfo(int box, int place){
+    public String[] getInfo(int box, int place) {
         String[] output = new String[2];
         //TODO: 03 - Informationen zu einer bestimmen CD
+        if (allCDs[box][place] == null) {
+            output[0] = "Empty";
+            output[1] = "Empty";
+        }else{
+            output[0] = allCDs[box][place].getArtist();
+            output[1] = allCDs[box][place].getTitle();
+        }
         return output;
     }
 
