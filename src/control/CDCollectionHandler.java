@@ -71,7 +71,10 @@ public class CDCollectionHandler {
      */
     public boolean releaseCD(int box, int place){
         //TODO: 04 - Entfernen einer bestimmten CD
-
+        if (allCDs[box][place] != null){
+            allCDs[box][place] = null;
+            return true;
+        }
         return false;
     }
 
@@ -82,8 +85,17 @@ public class CDCollectionHandler {
      */
     public String[] getAllCDsFrom(int index){
         //TODO: 05 - Vollständige Informationsausgabe aller CDs - Nach Fertigstellung im MainPanelHandler Zeile 165-167 entkommentieren
-        String[] output = new String[2];
-        return null;
+        String[] output = new String[allCDs[index].length*2];
+        for (int i = 0; i < allCDs[index].length; i++){
+            if (allCDs[index][i] == null){
+                output[i*2] = "Empty";
+                output[i*2+1] = "Empty";
+            }else{
+                output[i*2] = allCDs[index][i].getArtist();
+                output[i*2+1] = allCDs[index][i].getTitle();
+            }
+        }
+        return output;
     }
 
     /**
@@ -92,6 +104,12 @@ public class CDCollectionHandler {
      */
     public void pack(int box){
         //TODO: 06 - Komprimieren eines CD-Ständers, von unten nach oben
+        for (int i= 0; i < allCDs[box].length; i++){
+            if (allCDs[box][i] == null) {
+                allCDs[box];
+                allCDs[box];
+            }
+        }
 
     }
 
@@ -101,6 +119,5 @@ public class CDCollectionHandler {
      */
     public void sort(int box){
         //TODO: 07 - Sortieren eines CD-Ständers
-
     }
 }
