@@ -71,6 +71,7 @@ public class CDCollectionHandler {
      */
     public boolean releaseCD(int box, int place){
         //TODO: 04 - Entfernen einer bestimmten CD
+
         return false;
     }
 
@@ -81,6 +82,7 @@ public class CDCollectionHandler {
      */
     public String[] getAllCDsFrom(int index){
         //TODO: 05 - Vollständige Informationsausgabe aller CDs - Nach Fertigstellung im MainPanelHandler Zeile 165-167 entkommentieren
+        String[] output = new String[2];
         return null;
     }
 
@@ -90,6 +92,7 @@ public class CDCollectionHandler {
      */
     public void pack(int box){
         //TODO: 06 - Komprimieren eines CD-Ständers, von unten nach oben
+
     }
 
     /**
@@ -98,5 +101,6 @@ public class CDCollectionHandler {
      */
     public void sort(int box){
         //TODO: 07 - Sortieren eines CD-Ständers
+
     }
 }
